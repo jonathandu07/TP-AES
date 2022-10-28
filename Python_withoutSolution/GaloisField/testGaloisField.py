@@ -33,6 +33,20 @@ def Generate_Logtable_Alogtable():
 ################################################################################
 """FILL IN MISSING CODE"""
 
+array = np.full([16,16],hex(0))
+for x in range(16):
+   for y in range(16):
+    hex_x = hex(x)[2:]
+    hex_y = hex(y)[2:]
+
+    xy = f'0x{hex_x}{hex_y}'
+    b = bin(int(xy,16))[2:]
+    res = gf.xtime(int(b))
+    array[x,y] = hex(res)
+
+for i in range(len(array)):
+    print(array[i])
+raise ValueError() 
 ################################################################################
 # Example of addition in F_256
 ################################################################################
