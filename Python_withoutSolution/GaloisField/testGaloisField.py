@@ -32,21 +32,27 @@ def Generate_Logtable_Alogtable():
 # Tabular representation of xtime(xy)
 ################################################################################
 """FILL IN MISSING CODE"""
-L=[]
-for x in range(16):
-    l=[]
-    for y in range(16):
-        hex_x = hex(x)[2:]
-        hex_y = hex(y)[2:]
-        xy = f'0x{hex_x}{hex_y}'
-        b = bin(int(xy,base=16))[2:]
-        
-        res = gf.xtime(int(b,2))
-        l.append({xy:hex(res)})
-    L.append(l)
-for k in L:
-    print(k)
-raise ValueError() 
+def Question1_1():
+    # we use custom arrays to avoid numpy type system
+    array=[]
+    for x in range(16):
+        line=[]
+        for y in range(16):
+            hex_x = hex(x)[2:]
+            hex_y = hex(y)[2:]
+
+            xy = f'0x{hex_x}{hex_y}' # concatenation of hex values
+
+            b = bin(int(xy,base=16))[2:]
+            
+            res = gf.xtime(int(b,2))
+            line.append({xy:hex(res)})
+        array.append(line)
+
+    for k in array:
+        print(k)
+
+#Question1_1() 
 ################################################################################
 # Example of addition in F_256
 ################################################################################
@@ -56,6 +62,14 @@ a1=int('0xa1',16)
 b1=int('0x12',16)
 # print a1+b1='0xb3' in hex form
 """FILL IN MISSING CODE"""
+
+def Question1_2():
+    res= gf.add(a1,b1)
+    res = hex(res)
+    print(res)
+
+Question1_2()
+raise ValueError()
 
 ################################################################################
 # Example of slow multiplication in F_256 using xtime()
