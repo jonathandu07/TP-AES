@@ -109,7 +109,7 @@ def Decrypt(cyphertext,key,ROUNDS):
             state[rd,l,c]=cyphertext[4*c+l]
 
     # INVERT LAST ROUND (without Inverse Mix Columns transformation)
-     """FILL IN MISSING CODE"""
+     #"""FILL IN MISSING CODE"""
 
     # INVERT #ROUNDS-1 TO ROUND#1:
     for rd in range(ROUNDS-1,0,-1):
